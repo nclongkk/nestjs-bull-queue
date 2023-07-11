@@ -44,7 +44,7 @@ export class AppQueueModule {
       ],
       providers: [
         {
-          provide: 'BULL_BOARD_MODULE_OPTIONS',
+          provide: BULL_BOARD_OPTIONS_TOKEN,
           useValue: options,
         },
         BullBoardConfig,
