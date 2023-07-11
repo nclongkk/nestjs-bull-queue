@@ -16,26 +16,14 @@ export class AppQueueModule {
     const asyncOptions = await new options.useClass(
       ...options.injects.map((Inject) => new Inject()),
     ).createAppQueueOptions();
-
-    return {
-      module: AppQueueModule,
-      imports: [
-        ...asyncOptions.queues.map((queue) => BullModule.registerQueue(queue)),
-        BullModule.forRoot(asyncOptions.bullConfig),
-      ],
-      providers: [
-        {
-          provide: BULL_BOARD_OPTIONS_TOKEN,
-          useValue: asyncOptions,
-        },
-        BullBoardConfig,
-        AppQueueService,
-      ],
-      exports: [AppQueueService, BullBoardConfig],
-    };
+    return this.createDynamicModule(asyncOptions);
   }
 
   static register(options: AppQueueOptions): DynamicModule {
+    return this.createDynamicModule(options);
+  }
+
+  static createDynamicModule(options: AppQueueOptions): DynamicModule {
     return {
       module: AppQueueModule,
       imports: [

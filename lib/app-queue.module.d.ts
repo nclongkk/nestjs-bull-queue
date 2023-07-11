@@ -3,4 +3,5 @@ import { AppQueueModuleAsyncOptions, AppQueueOptions } from './interfaces/app-qu
 export declare class AppQueueModule {
     static registerAsync(options: AppQueueModuleAsyncOptions): Promise<DynamicModule>;
     static register(options: AppQueueOptions): DynamicModule;
+    static createDynamicModule(options: AppQueueOptions): DynamicModule;
 }
