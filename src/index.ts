@@ -4,3 +4,4 @@ export * from './bull-board.service';
 export * from './constants';
 export * from './interfaces';
 export * from './base';
+export * from './default-config';
