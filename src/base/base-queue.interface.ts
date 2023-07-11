@@ -1,5 +1,5 @@
-import Bull, { Job, JobId, JobOptions, JobStatus } from 'bull';
-
+import * as Bull from 'bull';
+import { Job, JobId, JobOptions, JobStatus } from 'bull';
 export interface IBaseQueueService<T> {
   addJob(queueName: string, data: T, options?: JobOptions): Promise<Job<T>>;
   removeJobs(pattern: string): Promise<void>;

@@ -1,4 +1,5 @@
-import Bull, { Queue, Job, JobId, JobOptions, JobStatus } from 'bull';
+import * as Bull from 'bull';
+import { Queue, Job, JobId, JobOptions, JobStatus } from 'bull';
 import { IBaseQueueService } from './base-queue.interface';
 
 export class BaseQueueService<T> implements IBaseQueueService<T> {
