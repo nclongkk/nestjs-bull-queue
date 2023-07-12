@@ -5,7 +5,10 @@ import { ExpressAdapter } from '@bull-board/express';
 import { createBullBoard } from '@bull-board/api';
 import { AppQueueOptions } from './interfaces/app-queue-options.interface';
 import { AppQueueService } from './app-queue.service';
-import { BULL_BOARD_OPTIONS_TOKEN } from './constants/app-queue.constants';
+import {
+  BULL_BOARD_MODE,
+  BULL_BOARD_OPTIONS_TOKEN,
+} from './constants/app-queue.constants';
 
 @Injectable()
 export class BullBoardConfig {
@@ -16,7 +19,7 @@ export class BullBoardConfig {
   ) {}
 
   setupBullBoard(app: INestApplication): void {
-    if (this.options.bullBoard.mode === 'off') {
+    if (this.options.bullBoard.mode !== BULL_BOARD_MODE.ON) {
       return;
     }
 

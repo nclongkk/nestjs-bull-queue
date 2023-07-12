@@ -1,3 +1,4 @@
+import { BULL_BOARD_MODE } from './constants';
 import { AppQueueOptions } from './interfaces';
 
 export const getDefaultConfig = (): AppQueueOptions => {
@@ -16,7 +17,10 @@ export const getDefaultConfig = (): AppQueueOptions => {
 
   return {
     bullBoard: {
-      mode: process.env.BULL_BOARD_MODE as 'on' | 'off',
+      mode:
+        process.env.BULL_BOARD_MODE === 'on'
+          ? BULL_BOARD_MODE.ON
+          : BULL_BOARD_MODE.OFF,
       auth: {
         username: process.env.BULL_BOARD_USERNAME,
         password: process.env.BULL_BOARD_PASSWORD,

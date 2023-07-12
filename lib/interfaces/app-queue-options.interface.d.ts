@@ -1,5 +1,6 @@
 import { BullModuleOptions, BullRootModuleOptions } from '@nestjs/bull';
 import { Type } from '@nestjs/common';
+import { BULL_BOARD_MODE } from '../constants';
 export interface AppQueueOptions {
     bullConfig: BullRootModuleOptions;
     queues: BullModuleOptions[];
@@ -9,7 +10,7 @@ export interface AppQueueOptionsFactory {
     createAppQueueOptions(): AppQueueOptions | Promise<AppQueueOptions>;
 }
 export interface BullBoardOptions {
-    mode: 'on' | 'off';
+    mode: BULL_BOARD_MODE;
     auth: {
         username: string;
         password: string;
