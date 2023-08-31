@@ -25,17 +25,19 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@bull-board/api": "^5.6.0",
     "@bull-board/express": "^5.6.0",
     "@nestjs/bull": "^10.0.1",
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/config": "^3.0.0",
-    "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "bull": "^4.10.4",
     "express-basic-auth": "^1.2.1",
-    "nestjs-bull-board": "^1.2.1",
+    "nestjs-bull-board": "^1.2.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^3.0.0",
+    "@nestjs/core": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
